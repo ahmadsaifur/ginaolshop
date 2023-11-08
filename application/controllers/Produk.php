@@ -142,7 +142,7 @@ class Produk extends CI_Controller
             $mail->Port     = 465;
 
             $mail->setFrom('saifur@ginaolshop.com', 'Kirim Produk Markaryoshop'); // ubah dengan alamat email Anda
-            $mail->addAddress('ahmadsaifur33@gmail.com');
+            $mail->addAddress('markaryoshop@gmail.com');
             $mail->addReplyTo('saifur@ginaolshop.com', 'Kirim Produk Markaryoshop'); // ubah dengan alamat email Anda
 
 
