@@ -12,7 +12,7 @@
                         <div class="contact_form-container">
                             <div>
                                 <div>
-                                    <input type="text" placeholder="Nama Lengkap" name="fullname">
+                                    <input type="text" placeholder="Nama Lengkap Anda" name="fullname">
                                     <?= form_error('fullname', '<small class="text-danger pl-3">', '</small>'); ?>
 
                                 </div>
@@ -60,23 +60,23 @@
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-
-        function hanyaAngka(evt) {
-            var charCode = (evt.which) ? evt.which : event.keyCode
-            if (charCode > 31 && (charCode < 48 || charCode > 57))
-
-                return false;
-            return true;
+<script>
+    $("#phonenumber").on("input", function() {
+        var inputValue = $(this).val();
+        // Hapus semua karakter non-angka
+        inputValue = inputValue.replace(/[^0-9]/g, '');
+        if (inputValue.startsWith("62")) {
+            $(this).val(inputValue);
+        } else {
+            $(this).val("62" + inputValue);
         }
-        $('#banyaknya').keyup(function(e) {
-            e.preventDefault();
-            var id = $(this).val();
-            var harga_produk = "<?= $produk->harga_promo ?>";
+    });
+    $('#banyaknya').keyup(function(e) {
+        e.preventDefault();
+        var id = $(this).val();
+        var harga_produk = "<?= $produk->harga_promo ?>";
 
-            var totalnya = id * harga_produk;
-            $('#totalnya').val(totalnya);
-        })
+        var totalnya = id * harga_produk;
+        $('#totalnya').val(totalnya);
     })
 </script>

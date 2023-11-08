@@ -123,7 +123,8 @@ class Produk extends CI_Controller
         <label> Produk  :  </label> <b>   $produk </b> <br>
         <label> Banyaknya  :  </label> <b>   $banyaknya </b> <br>
         <label> totalnya  :  </label> <b>  $totalnya </b> <br>
-                                ";
+        <a href='https://api.whatsapp.com/send?phone=$phone&text=Halo%20$fullname%20Saya%20Mau%20Konfirmasi%20Pesanan%20Anda%20Untuk%20Produk%20$produk%20Dengan%20Alamat%20$address%20Apakah%20Sudah%20Benar?' style='padding:8px 40px 8px 40px;border-radius:3px;background-color: rgb(238, 77, 45);
+    text-align: -webkit-center;'> Pesan Whatsapp</a>";
 
             // Load PHPMailer library
             $this->load->library('phpmailer_lib');
@@ -141,7 +142,7 @@ class Produk extends CI_Controller
             $mail->Port     = 465;
 
             $mail->setFrom('saifur@ginaolshop.com', 'Kirim Produk Markaryoshop'); // ubah dengan alamat email Anda
-            $mail->addAddress('markaryoshop@gmail.com');
+            $mail->addAddress('ahmadsaifur33@gmail.com');
             $mail->addReplyTo('saifur@ginaolshop.com', 'Kirim Produk Markaryoshop'); // ubah dengan alamat email Anda
 
 
@@ -152,7 +153,7 @@ class Produk extends CI_Controller
                 echo 'Message could not be sent.';
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
             } else {
-                echo 'Terimakasih Telah Order Produk Kami';
+                echo '<h2 class="text-primary"> Terimakasih Telah Order Produk Kami</h2>';
             }
         }
     }
